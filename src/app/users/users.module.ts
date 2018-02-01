@@ -5,12 +5,12 @@ import { UsersComponent } from './users.component';
 import { UserService } from '../api/api/users.service';
 
 const path: Routes = [
-  {path: 'users', component: UsersComponent}
+  {path: '', component: UsersComponent}
 ];
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(path)
+    RouterModule.forChild(path)
   ],
   declarations: [
     UsersComponent
