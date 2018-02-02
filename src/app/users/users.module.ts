@@ -16,7 +16,6 @@ const path: Routes = [
     UsersComponent
   ],
   providers: [
-    UserService
   ]
 })
 export class UsersModule { }

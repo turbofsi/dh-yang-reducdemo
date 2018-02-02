@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
+import { Store } from '@ngrx/store';
 
 import { UserService } from '../api/api/users.service';
 import { User } from '../api/model/user';
+import { AppState } from '../core/store/AppState';
+import * as PostActions from '../core/store/actions/post.actions';
 
 @Component({
   selector: 'app-users',
@@ -14,19 +16,18 @@ export class UsersComponent implements OnInit {
 
   userPostList: User[];
   errorMessage: string;
+  posts$: Observable<any>;
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit() {
-    this.userService.getPosts().subscribe(
-      (users: User[]) => this.onUserListRetrived(users),
-      (error: any) => this.errorMessage = <any>error
-    );
-
+  constructor(private store: Store<AppState>) {
+    this.posts$ = this.store.select(state => state.posts);
   }
 
-  onUserListRetrived(userPostList: User[]): void {
-    this.userPostList = userPostList;
+  ngOnInit() {
+    this.getPosts();
+  }
+
+  getPosts(): void {
+    this.store.dispatch(new PostActions.LoadPostsAction());
   }
 
 }
