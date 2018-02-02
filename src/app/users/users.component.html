@@ -1,4 +1,4 @@
-<span> {{ posts$ | async }}  </span>
+<app-post-list [posts]="posts$ | async"></app-post-list>
 <!-- <ul>
   <li *ngFor="let user of userPostList">
     <p>UserId: {{ user.userId }}</p>
