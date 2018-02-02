@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  APP_NAME: 'Redux Demo',
+  API_PATH: 'https://jsonplaceholder.typicode.com/'
 };
