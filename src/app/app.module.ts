@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 import { AppComponent } from './app.component';
@@ -27,7 +28,10 @@ import { UserService } from './api/api/users.service';
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({posts: PostReducer}),
-    EffectsModule.forRoot([PostEffects])
+    EffectsModule.forRoot([PostEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
