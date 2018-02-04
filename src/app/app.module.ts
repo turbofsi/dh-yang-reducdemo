@@ -14,6 +14,7 @@ import { PostReducer } from './core/store/reducers/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { PostEffects } from './core/store/effects/posts.effects.service';
 import { UserService } from './api/api/users.service';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { UserService } from './api/api/users.service';
     NotfoundComponent,
     WelcomeComponent,
     ContactComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

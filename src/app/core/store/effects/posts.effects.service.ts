@@ -13,7 +13,7 @@ constructor(
     private userService: UserService,
     private actions$: Actions) { }
 
-@Effect() loadPosts$ = this.actions$
+@Effect()loadPosts$ = this.actions$
     .ofType(PostActions.LOAD_POSTS)
     .switchMap(() => this.userService.getPosts())
     .map(posts => (new PostActions.LoadPostsSuccessAction(posts)));
